@@ -1,5 +1,5 @@
-import styled from 'styled-components/';
-import { darken } from 'polished';
+import styled from "styled-components/";
+import { darken } from "polished";
 
 export const ProductList = styled.ul`
   display: grid;
@@ -7,17 +7,16 @@ export const ProductList = styled.ul`
   grid-gap: 20px;
   list-style: none;
 
-  li{
+  li {
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 4px;
     padding: 20px;
 
-    img{
+    img {
       align-self: center;
-      max-width:250px;
-
+      max-width: 250px;
     }
     > strong {
       font-size: 16px;
@@ -26,13 +25,12 @@ export const ProductList = styled.ul`
       margin-top: 5px;
     }
     > span {
-     font-size: 21px;
-     font-weight: bold;
-     margin: 5px 0 20px;
+      font-size: 21px;
+      font-weight: bold;
+      margin: 5px 0 20px;
     }
 
-      
-     button {
+    button {
       background: #333;
       color: #fff;
       border: 0;
@@ -42,25 +40,39 @@ export const ProductList = styled.ul`
       display: flex;
       align-items: center;
       transition: background 0.2s;
-      &:hover{
-        background: ${darken(0.1, '#333')};
-        
+      &:hover {
+        background: ${darken(0.1, "#333")};
       }
 
-      div{
+      div {
         display: flex;
         align-items: center;
         padding: 12px;
         background: rgb(0, 0, 0, 0.1);
-         svg {
-           margin-right: 5px;
-         }
-      }
-      span{
-        flex: 1;
-        text-align:cent;
-        font-weight: bold;
-      }
+        svg {
+          margin-right: 5px;
         }
       }
-`
+      span {
+        flex: 1;
+        text-align: cent;
+        font-weight: bold;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    li {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 4px;
+      padding: 8px;
+
+      img {
+        align-self: center;
+        max-width: 250px;
+      }
+    }
+  }
+`;
