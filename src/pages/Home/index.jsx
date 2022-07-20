@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { ProductList } from "./styles";
-import { BsFillCartPlusFill } from "react-icons/bs";
 import api from "../../services/api";
 import { formatPrice } from "../../util/format";
 import { addToCard } from "../../store/modules/cart/actions";
