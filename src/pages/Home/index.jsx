@@ -5,6 +5,7 @@ import { BsFillCartPlusFill } from "react-icons/bs";
 import api from "../../services/api";
 import { formatPrice } from "../../util/format";
 import { addToCard } from "../../store/modules/cart/actions";
+import { Card } from "../../components/Card";
 
 const Home = ({ dispatch, cart }) => {
   const [products, setProducts] = useState([]);
@@ -29,18 +30,12 @@ const Home = ({ dispatch, cart }) => {
   return (
     <ProductList>
       {products.map((item) => (
-        <li key={item.id}>
-          <img src={item.image} alt="Tênis" />
-          <strong>{item.title}</strong>
-          <span>R$ {item.priceFormatted}</span>
-          <button type="button" onClick={() => dispatch(addToCard(item))}>
-            <div>
-              <BsFillCartPlusFill size={16} color="#FFF" />{" "}
-              {cartSizeProduct(item.id)}
-            </div>
-            <span>Adicionar ao carrinho</span>
-          </button>
-        </li>
+        <Card
+          item={item}
+          dispatch={dispatch}
+          addToCard={addToCard}
+          cartSizeProduct={cartSizeProduct}
+        />
       ))}
     </ProductList>
   );

@@ -83,23 +83,30 @@ export const ProductTable = styled.table`
       display: none;
     }
     img {
-      height: 100%;
+      height: 40%;
     }
     tbody {
       td {
         display: flex;
         flex-direction: column;
+        text-align: center;
 
         div {
+          width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
         button {
           width: 100%;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           svg {
             height: 30px;
             width: 30px;
