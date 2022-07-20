@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { ProductList } from "./styles";
-import { MdAddShoppingCart } from "react-icons/md";
+import { BsFillCartPlusFill } from "react-icons/bs";
 import api from "../../services/api";
 import { formatPrice } from "../../util/format";
 import { addToCard } from "../../store/modules/cart/actions";
@@ -35,7 +35,7 @@ const Home = ({ dispatch, cart }) => {
           <span>R$ {item.priceFormatted}</span>
           <button type="button" onClick={() => dispatch(addToCard(item))}>
             <div>
-              <MdAddShoppingCart size={16} color="#FFF" />{" "}
+              <BsFillCartPlusFill size={16} color="#FFF" />{" "}
               {cartSizeProduct(item.id)}
             </div>
             <span>Adicionar ao carrinho</span>
