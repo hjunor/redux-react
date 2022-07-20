@@ -12,10 +12,17 @@ import {
 } from "../../store/modules/cart/actions";
 import { formatPrice } from "../../util/format.js";
 const Cart = ({ cart, dispatch }) => {
-  const total = cart.reduce((sum, items) => {
-    return items.amount * items.price + sum;
+  const total = cart.reduce((sum, item) => {
+    return item.amount * item.price + sum;
   }, 0);
-
+  const priceProduct = (id) => {
+    return cart.reduce((sum, item) => {
+      if (item.id === id) {
+        return item.price * item.amount;
+      }
+      return sum;
+    }, 0);
+  };
   return (
     <Container>
       <ProductTable>
@@ -64,7 +71,7 @@ const Cart = ({ cart, dispatch }) => {
                   </div>
                 </td>
                 <td>
-                  <strong>R$ 258,80</strong>
+                  <strong>{formatPrice(priceProduct(product.id))}</strong>
                 </td>
                 <td>
                   <button

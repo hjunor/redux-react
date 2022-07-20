@@ -1,6 +1,5 @@
 import produce from "immer";
 export default function cart(state = [], action) {
-  console.log({ state, action });
   switch (action.type) {
     case "@cart/ADD":
       return produce(state, (draft) => {
