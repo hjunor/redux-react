@@ -55,13 +55,13 @@ export const ProductList = styled.ul`
       }
       span {
         flex: 1;
-        text-align: cent;
+        text-align: center;
         font-weight: bold;
       }
     }
   }
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     li {
       display: flex;
       flex-direction: column;
@@ -71,7 +71,20 @@ export const ProductList = styled.ul`
 
       img {
         align-self: center;
-        max-width: 250px;
+        max-width: 100px;
+      }
+      strong {
+        font-size: 12px;
+      }
+      span {
+        margin-top: auto;
+        font-size: 18px;
+      }
+      button {
+        span {
+          font-size: 12px;
+          padding-bottom: 5px;
+        }
       }
     }
   }
