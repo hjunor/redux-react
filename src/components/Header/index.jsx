@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Container, Cart } from "./styles";
-import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import { MdShoppingBasket } from "react-icons/md";
+import { BsFillBagCheckFill } from "react-icons/bs";
+import { Logo } from "../Logo";
 const Header = ({ cart }) => {
   const amount = cart.reduce((sum, items) => {
     return items.amount + sum;
@@ -11,14 +11,14 @@ const Header = ({ cart }) => {
   return (
     <Container>
       <Link to="/">
-        <img src={logo} alt="Logo" />
+        <Logo width="12rem" height="160px" />
       </Link>
       <Cart to="/cart">
         <div>
           <strong>Meu Carrinho</strong>
           <span>{amount} itens </span>
         </div>
-        <MdShoppingBasket size={36} color="#FFF" />
+        <BsFillBagCheckFill size={36} color="var(--green)" />
       </Cart>
     </Container>
   );

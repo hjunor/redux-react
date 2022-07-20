@@ -1,8 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
-import background from '../assets/images/background.svg';
+import { createGlobalStyle } from "styled-components";
+import background from "../assets/images/background.svg";
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+  :root{
+  --green:#00B37E;
+  --blue: #81D8F7;
+  }
+
   *{
     margin: 0;
     padding: 0;
@@ -24,5 +30,20 @@ export default createGlobalStyle`
   }
   button {
     cursor: pointer;
+  } 
+
+  .animeLeft {
+    opacity: 0;
+    transform: translatex(-50px);
+    animation: animeLeft 0.9s forwards;
+  }
+  @keyframes animeLeft {
+    to {
+        opacity: 1;
+        transform: initial;
+    }
+  }
+  .br{
+    border: 1px solid red;
   }
 `;

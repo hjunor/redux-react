@@ -1,6 +1,6 @@
 import produce from "immer";
 const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
-  ? JSON.parse(localStorage.getItem("->sg<-ippingAddress"))
+  ? JSON.parse(localStorage.getItem("shippingAddress"))
   : [];
 export default function cart(state = shippingAddressFromStorage, action) {
   switch (action.type) {

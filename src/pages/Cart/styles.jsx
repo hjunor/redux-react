@@ -11,7 +11,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     button {
-      background: #7159c1;
+      background: var(--blue);
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -20,7 +20,15 @@ export const Container = styled.div`
       text-transform: uppercase;
       transition: backgroud 0.2s;
       &:hover {
-        background: ${darken(0.03, "#7159c1")};
+        background: ${darken(0.3, "#81D8F7")};
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    footer {
+      button {
+        width: 8rem;
+        font-size: 0.6rem;
       }
     }
   }
@@ -68,6 +76,38 @@ export const ProductTable = styled.table`
     border: 0;
     padding: 6px;
   }
+
+  @media (max-width: 600px) {
+    gap: 3rem;
+    thead tr th {
+      display: none;
+    }
+    img {
+      height: 100%;
+    }
+    tbody {
+      td {
+        display: flex;
+        flex-direction: column;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        button {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          svg {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
 `;
 export const Total = styled.div`
   display: flex;
@@ -79,5 +119,10 @@ export const Total = styled.div`
   strong {
     font-size: 28px;
     margin-left: 5px;
+  }
+  @media (max-width: 600px) {
+    strong {
+      font-size: 22px;
+    }
   }
 `;

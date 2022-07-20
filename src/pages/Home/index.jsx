@@ -9,6 +9,8 @@ import { addToCard } from "../../store/modules/cart/actions";
 const Home = ({ dispatch, cart }) => {
   const [products, setProducts] = useState([]);
 
+  localStorage.setItem("shippingAddress", JSON.stringify(cart));
+
   useEffect(() => {
     async function componentDidMount() {
       const { data } = await api.get("products");

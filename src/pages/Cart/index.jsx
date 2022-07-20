@@ -12,6 +12,8 @@ import {
 } from "../../store/modules/cart/actions";
 import { formatPrice } from "../../util/format.js";
 const Cart = ({ cart, dispatch }) => {
+  localStorage.setItem("shippingAddress", JSON.stringify(cart));
+
   const total = cart.reduce((sum, item) => {
     return item.amount * item.price + sum;
   }, 0);
@@ -54,7 +56,7 @@ const Cart = ({ cart, dispatch }) => {
                         )
                       }
                     >
-                      <MdRemoveCircleOutline size={20} color="#7159c1" />
+                      <MdRemoveCircleOutline size={20} color="var(--green)" />
                     </button>
                     <input type="number" readOnly value={product.amount} />
 
@@ -66,7 +68,7 @@ const Cart = ({ cart, dispatch }) => {
                         )
                       }
                     >
-                      <MdAddCircleOutline size={20} color="#7159c1" />
+                      <MdAddCircleOutline size={20} color="var(--green)" />
                     </button>
                   </div>
                 </td>
@@ -78,7 +80,7 @@ const Cart = ({ cart, dispatch }) => {
                     type="button"
                     onClick={() => dispatch(removeFromCart(product.id))}
                   >
-                    <MdDelete size={15} color="#7159c1" />
+                    <MdDelete size={15} color="var(--green)" />
                   </button>
                 </td>
               </tr>
@@ -87,7 +89,9 @@ const Cart = ({ cart, dispatch }) => {
         </thead>
       </ProductTable>
       <footer>
-        <button type="button"> finalizar pedido</button>
+        <button type="button" disabled={total >= 0 ? true : false}>
+          finalizar pedido
+        </button>
         <Total>
           <span>Total</span>
           <strong>{formatPrice(total)}</strong>
