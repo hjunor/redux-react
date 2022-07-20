@@ -1,5 +1,8 @@
 import produce from "immer";
-export default function cart(state = [], action) {
+const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
+  ? JSON.parse(localStorage.getItem("->sg<-ippingAddress"))
+  : [];
+export default function cart(state = shippingAddressFromStorage, action) {
   switch (action.type) {
     case "@cart/ADD":
       return produce(state, (draft) => {
